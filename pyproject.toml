@@ -1,0 +1,32 @@
+[project]
+name = "stl_repair"
+version = "0.1.0"
+description = "Repair STLs using Blender's capabilities"
+authors = [
+    {name = "Miles Smith", email = "mileschristiansmith@gmail.com"},
+]
+dependencies = [
+    "bpy>=4.1.0",
+    "typer>=0.12.3",
+    "rich>=13.7.1",
+    "loguru>=0.7.2",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "GPL-3.0"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project.scripts]
+repair_stls = "stl_repair.__init__:app"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "ruff>=0.4.10",
+    "mypy>=1.10.0",
+]

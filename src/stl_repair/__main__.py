@@ -3,7 +3,7 @@ from pathlib import Path
 import bpy
 from loguru import logger
 
-bpy.ops.preferences.addon_enable(module='object_print3d_utils')
+bpy.ops.preferences.addon_enable(module="object_print3d_utils")
 
 
 def repair_stl(filename: Path, output_dir: Path | None = None, suffix: str | None = None) -> None:
@@ -21,9 +21,9 @@ def repair_stl(filename: Path, output_dir: Path | None = None, suffix: str | Non
     if suffix:
         bpy.data.objects[0].name = bpy.data.objects[0].name + suffix
     if not output_dir:
-        output_dir = str(filename.resolve().parent) + "/"
-    output_dir = str(output_dir) if not isinstance(output_dir, str) else output_dir
-    output_dir = output_dir + "/" if not output_dir.endswith("/") else output_dir
+        output_dir = f"{filename.resolve().parent!s}/"
+    output_dir = output_dir if isinstance(output_dir, str) else str(output_dir)
+    output_dir = output_dir if output_dir.endswith("/") else f"{output_dir}/"
 
     logger.info(f"{output_dir=}")
     logger.info(f"{bpy.data.objects[0].name=}")

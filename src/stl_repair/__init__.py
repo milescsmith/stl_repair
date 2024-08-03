@@ -105,7 +105,7 @@ def stl_repair_cli(
         init_logger(verbose=verbosity_level)
     else:
         logger.add(sys.stderr, format="* <yellow>{message}</yellow>", colorize=True)
-        init_logger(verbose=1, msg_format="<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>")
+        init_logger(verbose=0, msg_format="<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>")
     if not output.exists():
         output.mkdir()
     if filepath.is_file():

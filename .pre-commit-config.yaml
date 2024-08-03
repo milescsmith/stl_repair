@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: check-ast
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: debug-statements
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: fix-byte-order-marker
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.5.5
+    hooks:
+      - id: ruff
+        args: [ --fix, --ignore=S101 ]
+      - id: ruff-format
+  - repo: https://github.com/pdm-project/pdm
+    rev: 2.17.1 # a PDM release exposing the hook
+    hooks:
+    - id: pdm-lock-check
+    - id: pdm-sync
+      additional_dependencies:
+        - keyring

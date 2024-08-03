@@ -1,6 +1,6 @@
 [project]
 name = "stl_repair"
-version = "0.1.0"
+version = "0.2.0"
 description = "Repair STLs using Blender's capabilities"
 authors = [
     {name = "Miles Smith", email = "mileschristiansmith@gmail.com"},
@@ -11,7 +11,7 @@ dependencies = [
     "rich>=13.7.1",
     "loguru>=0.7.2",
 ]
-requires-python = "==3.11.*"
+requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "GPL-3.0"}
 
@@ -29,4 +29,6 @@ distribution = true
 dev = [
     "ruff>=0.4.10",
     "mypy>=1.10.0",
+    "nox>=2024.4.15",
+    "pre-commit>=3.8.0",
 ]

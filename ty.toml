@@ -1,0 +1,4 @@
+[environment]
+python = ".venv"
+python-version = "3.11"
+root = ["./src"]

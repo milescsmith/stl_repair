@@ -1,6 +1,6 @@
 [project]
 name = "stl_repair"
-version = "0.2.0"
+version = "0.3.0"
 description = "Repair STLs using Blender's capabilities"
 authors = [
     {name = "Miles Smith", email = "mileschristiansmith@gmail.com"},
@@ -11,24 +11,29 @@ dependencies = [
     "rich>=13.7.1",
     "loguru>=0.7.2",
 ]
-requires-python = ">=3.10"
+requires-python = "==3.11.*"
 readme = "README.md"
 license = {text = "GPL-3.0"}
 
 [build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
+requires = ["uv_build>=0.11.7,<0.12"]
+build-backend = "uv_build"
 
 [project.scripts]
 repair_stls = "stl_repair.__init__:app"
 
-[tool.pdm]
-distribution = true
-
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 dev = [
-    "ruff>=0.4.10",
-    "mypy>=1.10.0",
-    "nox>=2024.4.15",
-    "pre-commit>=3.8.0",
+    "nox>=2026.4.10",
+    "pre-commit>=4.6.0",
+    "ruff>=0.15.12",
+    "ty>=0.0.32",
 ]
+
+[tool.uv.sources]
+bpy = { index = "blender" }
+
+[[tool.uv.index]]
+name = "blender"
+url = "https://download.blender.org/pypi/"
+explicit = true

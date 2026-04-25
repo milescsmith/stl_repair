@@ -3,7 +3,7 @@ from pathlib import Path
 import bpy
 from loguru import logger
 
-bpy.ops.preferences.addon_enable(module="object_print3d_utils")
+# bpy.ops.preferences.addon_enable(module="object_print3d_utils")
 
 
 def repair_stl(filename: Path, output_dir: Path | None = None, suffix: str | None = None) -> None:
@@ -15,8 +15,8 @@ def repair_stl(filename: Path, output_dir: Path | None = None, suffix: str | Non
     for i in range(3):
         bpy.context.object.location[i] = 0
 
-    bpy.ops.mesh.print3d_check_all()
-    bpy.ops.mesh.print3d_clean_non_manifold()
+    # bpy.ops.mesh.print3d_check_all()
+    # bpy.ops.mesh.print3d_clean_non_manifold()
     bpy.ops.object.collection_instance_add("INVOKE_DEFAULT")
     if suffix:
         bpy.data.objects[0].name = bpy.data.objects[0].name + suffix

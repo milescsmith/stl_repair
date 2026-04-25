@@ -17,10 +17,3 @@ repos:
       - id: ruff
         args: [ --fix, --ignore=S101 ]
       - id: ruff-format
-  - repo: https://github.com/pdm-project/pdm
-    rev: 2.17.1 # a PDM release exposing the hook
-    hooks:
-    - id: pdm-lock-check
-    - id: pdm-sync
-      additional_dependencies:
-        - keyring
